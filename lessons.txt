@@ -1,0 +1,31 @@
+So far, learned:
+
+1. A bit more on destructuring a property from a module.
+2. The await keywords returns control of execution to the event loop. It seems the event loop
+will know best what execution should be next.
+3. How to leverage the promise-based methods in FS.
+4. Compared promise-based to callback-based methods.
+5. Practice getting comfortable with technical documentation.
+6. The differences between CPU- and IO-bound tasks, where the former depends on a CPU's processing power
+and the latter depends more on on external systems (to process and return values) and has a time-based bottleneck.
+7. Multi-threading
+    - leverages multiple cores to run multiple processes at a time.
+    - Typically a core would process one thread at a time.
+8. Worker threads
+    - offloading CPU-bound tasks away from main thread (event loop)
+    - ...which allows main thread to focus on event loop tasks.
+    - ... and which enables Nodejs apps to be more scalable and responsive.
+    - to achieve true paralellism, multiple cores are necessary
+    - Nodejs manages this by using an internal thread pool and scheduling mechanism
+    - ... to optimize the execution of worker threads based on the available CPU resources.
+    - BUT each engine still runs in NodeJs which is single-threaded
+    - SO, would need paralellism to run tasks of worker threads simultaneously.
+9. Event loop 
+    - listens for events
+    - then runs callbacks assocaited to triggered events
+    - can be blocked by synchronously programming.
+10. Parralelism vs Concurrency
+    - Parallelism
+        - tasks are broken down into smaller tasks so they can be executed independently and simultaneously
+          - requires using processors or processor cores. 
+    - Concurrency uses 1 core to switch very quickly between multiple tasks. 
