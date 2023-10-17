@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.22.15"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "p-limit": "^4.0.0"
   }
 }

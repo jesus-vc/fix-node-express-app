@@ -1,0 +1,64 @@
+So far, learned:
+
+1. A bit more on destructuring a property from a module.
+2. The await keywords returns control of execution to the event loop. It seems the event loop
+will know best what execution should be next.
+3. How to leverage the promise-based methods in FS.
+4. Compared promise-based to callback-based methods.
+5. Practice getting comfortable with technical documentation.
+6. The differences between CPU- and IO-bound tasks, where the former depends on a CPU's processing power
+and the latter depends more on on external systems (to process and return values) and has a time-based bottleneck.
+7. Multi-threading
+    - leverages multiple cores to run multiple processes at a time.
+    - Typically a core would process one thread at a time.
+8. Worker threads
+    - offloading CPU-bound tasks away from main thread (event loop)
+    - ...which allows main thread to focus on event loop tasks.
+    - ... and which enables Nodejs apps to be more scalable and responsive.
+    - to achieve true paralellism, multiple cores are necessary
+    - Nodejs manages this by using an internal thread pool and scheduling mechanism
+    - ... to optimize the execution of worker threads based on the available CPU resources.
+    - BUT each engine still runs in NodeJs which is single-threaded
+    - SO, would need paralellism to run tasks of worker threads simultaneously.
+9. Event loop 
+    - listens for events
+    - then runs callbacks assocaited to triggered events
+    - can be blocked by synchronously programming.
+10. Parralelism vs Concurrency
+    - Parallelism
+        - tasks are broken down into smaller tasks so they can be executed independently and simultaneously
+          - requires using processors or processor cores. 
+    - Concurrency uses 1 core to switch very quickly between multiple tasks. 
+11. Block vs Function scope
+    - Clarified that a variable with function scope is accessible within entire function
+    - whereas block scoped variables only inside their block of code.
+12. The Array.ForEach method uses function scope whereas a for...of loop a block scope.
+    - A block scope is particularly handy for asynchronous operations given iterations
+    - can be mapped to their variables. 
+    - In other words, each iteration in for...of loop captures its own variables
+    - without sharing them across different iterations.
+13. How to handle concurrent HTTP requests?
+    - Not ForEach since it's not optimized to map variables, iterations, and errors. 
+    - Not For...Of since those calls are sequential
+    - Promise.all?
+    - Promise.allSettled?
+    - map array?
+    -
+14. What are closures?
+    - A process of enclosing inner and outer referencdes/variables.
+    - This gives inner functions the ability to access variables defined in outer functions, 
+    - long after the outer function has returned.
+    - This appears to include variables in outer/parent functions persisting in  memory. 
+15. Why use Immediately Invoked Function Expressions?
+    - One use case is to mimic private variables, where immeidately invoking functions
+    - allow executing the parent/outer function's variables for inner functions, without making these
+    - outer variables accessible to the rest of the program.
+    - Overall, a way to protect variables from the rest of the program, as executing them
+    - prevents them being being accessed by the rest of the program.
+16. Why are closure helpful in asynchronous operations?
+    - Closures allow async functions to access parent, outer variables, long after the 
+    - parent function has completed execution. 
+    - In other words, closures maintain scope and context (ie variables) in which the function was created.
+    
+
+
