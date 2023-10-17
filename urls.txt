@@ -1,5 +1,8 @@
-https://hub.dummyapis.com/delay?seconds=20
+https://hub.dummyapis.com/delay?seconds=5
 http://rithmschool.com
 https://nba.com
 http://postgresql.com
 https://nodejs.org/api/console.html
+http://foozlemcblargh.com
+https://nbasdfsdfasf23a.com
+https://nodsdf1111asfejs.org/api/console.html

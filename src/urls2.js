@@ -43,11 +43,17 @@ async function main() {
     const urls = await readUrlsFromFile();
 
     let count = 1;
+    // const promiseArray = [];
+
+    // for (const url of urls) {
+    //   const response = await getData(url);
+    //   await writeFile(`${count++}.txt`, response);
+    // }
 
     urls.forEach(async (url) => {
-      //PEER we need to await getData(url) other 'response' will be an unresolved Promise object.
-      const response = await getData(url);
+      //PEER we need to await getData(url), otherwise 'response' will be an unresolved Promise object.
 
+      const response = await getData(url);
       writeFile(`${count++}.txt`, response);
     });
   } catch (error) {
@@ -56,3 +62,5 @@ async function main() {
 }
 
 main();
+
+//PEER is 'await' needed in       await writeFile(`${count++}.txt`, response);?
