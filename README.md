@@ -10,7 +10,7 @@
   "node src/fetchdata.js urls.txt"
   ```
 
-# App #2 --> An API application that fetches user data from Github.
+# App #2 --> An API application that fetches user data from Github (/broken-app)
   1. http://localhost:3000/ takes as input a POST request such as
   ```
   { "developers": ["joelburton", "elie"] }
