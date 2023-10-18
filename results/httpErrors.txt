@@ -1,0 +1,3 @@
+The http://foozlemcblargh.com URL produced HTTP error: FetchError: request to http://foozlemcblargh.com/ failed, reason: getaddrinfo ENOTFOUND foozlemcblargh.com
+The https://nbasdfsdfasf23a.com URL produced HTTP error: FetchError: request to https://nbasdfsdfasf23a.com/ failed, reason: getaddrinfo ENOTFOUND nbasdfsdfasf23a.com
+The https://nodsdf1111asfejs.org/api/console.html URL produced HTTP error: FetchError: request to https://nodsdf1111asfejs.org/api/console.html failed, reason: getaddrinfo ENOTFOUND nodsdf1111asfejs.org
