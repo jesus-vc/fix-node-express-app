@@ -3,7 +3,7 @@ import { readFile, writeFile, appendFile } from "node:fs/promises";
 import fetch from "node-fetch";
 import pLimit from "p-limit";
 
-//PEER What is unclear with my code below?
+//PEER Any unclear with my code below?
 
 //PEER Is it true that capitalizing a variable name is a convention often used for constants in JS to distinguish them from regular variables?
 const MAX_CONCURRENT_REQUESTS = 10;
@@ -13,9 +13,6 @@ const HTTP_ERRORS_PATH = `${RESULTS_DIRECTORY}httpErrors.txt`;
 
 async function readUrlsFromFile() {
   try {
-    // PEER promise-based readFile method to asyncronously get URL, send Axios requests, and save responses.
-    // I would've used the non-promise based readFile in a scenario where there is a short list of URLs,
-    // and it would be okay to block the event loop until all URLs are read.
     const urls = await readFile(process.argv[2], "utf8");
     return urls.trim().split("\n");
   } catch (error) {
@@ -60,7 +57,6 @@ async function fetchData() {
     const concurrencyLimit = pLimit(MAX_CONCURRENT_REQUESTS);
 
     //PEER promiseURLs entries initially simply become pointers?
-    //TODO clarify if using index as argument matters.
     const processUrl = async (url) => {
       try {
         const response = await fetch(url);
@@ -93,7 +89,6 @@ async function fetchData() {
         console.error(result.reason.result);
       }
     });
-
     console.log(
       `All HTTP requests were completed. The /results directory contains a unique file for each successful request and there may be error files if errors were encountered.\n`
     );

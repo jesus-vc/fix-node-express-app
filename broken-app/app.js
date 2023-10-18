@@ -1,18 +1,7 @@
-const express = require('express');
-let axios = require('axios');
-var app = express();
+import { router } from "./appRouter.js";
 
-app.post('/', function(req, res, next) {
-  try {
-    let results = req.body.developers.map(async d => {
-      return await axios.get(`https://api.github.com/users/${d}`);
-    });
-    let out = results.map(r => ({ name: r.data.name, bio: r.data.bio }));
+import express from "express";
 
-    return res.send(JSON.stringify(out));
-  } catch {
-    next(err);
-  }
-});
+export const app = express();
 
-app.listen(3000);
+app.use("/", router);
