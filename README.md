@@ -13,5 +13,6 @@ Fixing broken Node-Express app.
 # App #2 --> An API application that fetches user data from Github.
   1. http://localhost:3000/ takes as input a POST request such as { "developers": ["joelburton", "elie"] }.
   2. Returns an array of objects with user information such as:
-![Screenshot 2023-10-18 at 9 51 00 AM](https://github.com/jesus-vc/fix-node-express-app/assets/52462476/1b58cbd8-63b8-462b-81f5-a929b5c344e9)
+![Screenshot 2023-10-18 at 9 52 18 AM](https://github.com/jesus-vc/fix-node-express-app/assets/52462476/133c5ea8-ea81-4e14-85ad-494e654c1397)
+
   3. Error Handling: If any user or if all users are "not found', an appropriate error message will be included in response. 
