@@ -1,6 +1,3 @@
-# fix-node-express-app
-Fixing broken Node-Express app.
-
 # This repo contains two applications.
 
 # App #1 --> A CLI program (/src/fetchData.js)
