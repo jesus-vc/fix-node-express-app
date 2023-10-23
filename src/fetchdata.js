@@ -3,8 +3,6 @@ import { readFile, writeFile, appendFile } from "node:fs/promises";
 import fetch from "node-fetch";
 import pLimit from "p-limit";
 
-//PEER question - Any unclear with my code below?
-
 //PEER question - Is it true that capitalizing a variable name is a convention often used for constants in JS to distinguish them from regular variables?
 const MAX_CONCURRENT_REQUESTS = 10;
 const RESULTS_DIRECTORY = "./results/";
