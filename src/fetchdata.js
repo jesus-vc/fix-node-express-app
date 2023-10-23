@@ -3,9 +3,9 @@ import { readFile, writeFile, appendFile } from "node:fs/promises";
 import fetch from "node-fetch";
 import pLimit from "p-limit";
 
-//PEER Any unclear with my code below?
+//PEER question - Any unclear with my code below?
 
-//PEER Is it true that capitalizing a variable name is a convention often used for constants in JS to distinguish them from regular variables?
+//PEER question - Is it true that capitalizing a variable name is a convention often used for constants in JS to distinguish them from regular variables?
 const MAX_CONCURRENT_REQUESTS = 10;
 const RESULTS_DIRECTORY = "./results/";
 const WRITE_FILE_ERRORS_PATH = `${RESULTS_DIRECTORY}writeFileErrors.txt`;
@@ -27,8 +27,7 @@ async function storeSuccessfulResponse(responseBody, url) {
     await writeFile(`${RESULTS_DIRECTORY}${url}.txt`, responseBody);
     return { url, result: `Success: ${url}` };
   } catch (error) {
-    //PEER Should I keep the await before appendFile() since I'm appending to the save file for multiple promises?
-    //Alernatively, maybe push to an array of errors?
+    //PEER question - Is it necessary to place 'await' before before appendFile(), given there is no subsequent operations?
     await appendFile(
       WRITE_FILE_ERRORS_PATH,
       `The ${url} URL produced error when saving a successful HTTP response to a file: ${error}\n`
@@ -51,12 +50,12 @@ async function storeErrorResponse(errorBody, url) {
   }
 }
 
+// Asynchronously fetch data from an array of urls and handle fulfilled and rejectd promises accordingly.
 async function fetchData() {
   try {
     const urls = await readUrlsFromFile();
     const concurrencyLimit = pLimit(MAX_CONCURRENT_REQUESTS);
 
-    //PEER promiseURLs entries initially simply become pointers?
     const processUrl = async (url) => {
       try {
         const response = await fetch(url);
@@ -71,8 +70,6 @@ async function fetchData() {
     };
 
     // Await all promises to settle before displaying results on terminal.
-    //PEER If promiseURLs executes before the Promise.allSettled method below (by running map() beforehand),
-    //wouldn't some of the returned values from promiseURLs be lost?
     const settledPromises = await Promise.allSettled(
       urls.map((url) => concurrencyLimit(() => processUrl(url)))
     );
